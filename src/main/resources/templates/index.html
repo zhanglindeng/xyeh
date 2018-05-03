@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{partial/header::header(~{::title},~{::link})}">
+    <title>欢迎来到校园二货</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1>校园二货</h1>
+    <hr>
+    <a class="btn btn-primary" th:href="@{/register}">注册</a>
+    <a class="btn btn-info" th:href="@{/login}">登录</a>
+</div>
+<div th:replace="~{partial/footer::footer}"></div>
+<script th:replace="~{partial/script}"></script>
+</body>
+</html>

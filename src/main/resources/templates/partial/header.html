@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<head th:fragment="header(title,links)" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:replace="${title}">校园二货</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <th:block th:replace="${links}"/>
+</head>
+</body>
+</html>
