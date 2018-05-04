@@ -8,8 +8,61 @@
 <div class="container">
     <h1>注册</h1>
     <hr>
+    <form th:action="@{/register}" method="post" th:object="${registerForm}">
+        <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="text" th:field="*{email}" id="email" class="form-control">
+            <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}">无效的邮箱地址</small>
+        </div>
+        <p>
+            <button type="button" id="get_verify_code_btn" class="btn btn-primary">获取验证码</button>
+        </p>
+        <div class="form-group">
+            <label for="verifyCode">验证码</label>
+            <input type="text" th:field="*{verifyCode}" id="verifyCode" class="form-control">
+            <small th:if="${#fields.hasErrors('verifyCode')}" th:errors="*{verifyCode}">无效的邮箱地址</small>
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" th:field="*{password}" id="password" class="form-control">
+            <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}">密码格式错误</small>
+        </div>
+        <div class="form-group">
+            <label for="password2">确认密码</label>
+            <input type="password" th:field="*{password2}" id="password2" class="form-control">
+            <small th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}">两次密码不一致</small>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">注册</button>
+        </div>
+    </form>
 </div>
 <div th:replace="~{partial/footer::footer}"></div>
 <script th:replace="~{partial/script}"></script>
+<script>
+    $(function () {
+        var $get_verify_code_btn = $('#get_verify_code_btn');
+        var $input_email = $('input[name="email"]');
+        $get_verify_code_btn.on('click', function () {
+            var email = $input_email.val();
+            if (email.length === 0) {
+                alert('请填写邮箱');
+                return;
+            }
+            $.ajax({
+                url: '/verifyCode/email',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    email: email
+                })
+            }).done(function (resp) {
+                console.log(resp);
+            }).fail(function (xhr) {
+                console.log(xhr);
+            });
+        });
+    });
+</script>
 </body>
 </html>
