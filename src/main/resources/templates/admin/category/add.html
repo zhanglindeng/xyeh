@@ -10,6 +10,8 @@
 <body>
 <div class="container">
     <h3>添加分类</h3>
+    <!--/*@thymesVar id="userName" type="java.lang.String"*/-->
+    <div th:text="${userName}">用户名</div>
     <hr>
     <form th:action="@{/admin/category/add}" method="post" th:object="${addCategoryForm}">
         <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${error}!=null">

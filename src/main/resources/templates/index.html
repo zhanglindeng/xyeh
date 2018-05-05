@@ -7,6 +7,8 @@
 <body>
 <div class="container">
     <h1>校园二货</h1>
+    <!--/*@thymesVar id="userName" type="java.lang.String"*/-->
+    <div th:text="${userName}">用户名</div>
     <hr>
     <a class="btn btn-primary" th:href="@{/register}">注册</a>
     <a class="btn btn-info" th:href="@{/login}">登录</a>
