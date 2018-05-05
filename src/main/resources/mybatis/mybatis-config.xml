@@ -12,6 +12,9 @@
         <typeAlias alias="String" type="java.lang.String"/>
 
         <typeAlias type="com.dengzhanglin.xyeh.entity.UserEntity" alias="User"/>
+        <typeAlias type="com.dengzhanglin.xyeh.entity.CategoryEntity" alias="Category"/>
+        <typeAlias type="com.dengzhanglin.xyeh.entity.GoodsEntity" alias="Goods"/>
+        <typeAlias type="com.dengzhanglin.xyeh.entity.ImageEntity" alias="Image"/>
     </typeAliases>
 
 </configuration>
