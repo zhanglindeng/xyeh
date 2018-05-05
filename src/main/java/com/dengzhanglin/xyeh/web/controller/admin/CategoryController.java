@@ -1,5 +1,6 @@
 package com.dengzhanglin.xyeh.web.controller.admin;
 
+import com.dengzhanglin.xyeh.entity.CategoryEntity;
 import com.dengzhanglin.xyeh.repository.CategoryRepository;
 import com.dengzhanglin.xyeh.web.form.AddCategoryForm;
 import org.slf4j.Logger;
@@ -10,9 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -25,6 +28,27 @@ public class CategoryController extends BaseController {
     @Autowired
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
+    }
+
+    @GetMapping(value = "")
+    public String index(Model model) {
+        model.addAttribute("categories", this.categoryRepository.getTopCategories());
+
+        return "admin/category/index";
+    }
+
+    @GetMapping(value = "/items/{pid}")
+    public String items(@PathVariable("pid") Integer pid, Model model, HttpServletResponse response) {
+        CategoryEntity categoryEntity = this.categoryRepository.findById(pid);
+        if (categoryEntity == null) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return "errors/404";
+        }
+
+        model.addAttribute("category", categoryEntity);
+        model.addAttribute("subCategories", this.categoryRepository.subCategories(pid));
+
+        return "admin/category/items";
     }
 
     @GetMapping(value = "/add")

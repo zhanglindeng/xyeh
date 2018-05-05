@@ -21,4 +21,12 @@
     <select id="getTopCategories" resultType="Category">
       select <include refid="goodsColumns"/> from category where pid = 0
     </select>
+
+    <select id="subCategories" parameterType="java.lang.Integer" resultType="Category">
+        select <include refid="goodsColumns"/> from category where pid = #{pid}
+    </select>
+
+    <select id="findById" parameterType="java.lang.Integer" resultType="Category">
+        select <include refid="goodsColumns"/> from category where id = #{id}
+    </select>
 </mapper>

@@ -22,4 +22,9 @@ public interface CategoryMapper {
      * @return List<CategoryEntity>
      */
     List<CategoryEntity> getTopCategories();
+
+    // 子分类
+    List<CategoryEntity> subCategories(Integer pid);
+
+    CategoryEntity findById(Integer id);
 }
