@@ -10,6 +10,7 @@
 <body>
 <div class="container">
     <h3>编辑分类</h3>
+    <a class="btn btn-primary" th:href="@{/admin/category}">返回列表</a>
     <hr>
     <form th:action="@{/admin/category/edit/{id}(id=${category.id})}" method="post" th:object="${addCategoryForm}">
         <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${error}!=null">

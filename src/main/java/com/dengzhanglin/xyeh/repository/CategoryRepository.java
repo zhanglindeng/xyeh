@@ -16,6 +16,10 @@ public class CategoryRepository {
         this.categoryMapper = categoryMapper;
     }
 
+    public Integer delete(Integer id) {
+        return  this.categoryMapper.delete(id);
+    }
+
     public Integer update(CategoryEntity categoryEntity) {
         return this.categoryMapper.update(categoryEntity);
     }

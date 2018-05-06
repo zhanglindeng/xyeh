@@ -30,6 +30,19 @@ public class CategoryController extends BaseController {
         this.categoryRepository = categoryRepository;
     }
 
+    @PostMapping(value = "/del/{id}")
+    public String delete(@PathVariable("id") Integer id, Model model) {
+
+        final String logPrefix = "[CategoryController:delete]";
+
+        if (this.categoryRepository.delete(id) > 0) {
+            this.logger.info(logPrefix + "删除成功: " + id);
+            return this.successView(model, "/admin/category", "删除成功");
+        }
+        this.logger.info(logPrefix + "删除失败: " + id);
+        return this.successView(model, "删除失败");
+    }
+
     @GetMapping(value = "/edit/{id}")
     public String edit(@PathVariable("id") Integer id, Model model, AddCategoryForm addCategoryForm,
                        HttpServletResponse response) {

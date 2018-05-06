@@ -10,6 +10,7 @@
 <body>
 <div class="container">
     <h3>子分类列表：<span th:text="${category.name}"></span></h3>
+    <a class="btn btn-primary" th:href="@{/admin/category}">返回列表</a>
     <hr>
     <table class="table table-hover table-bordered">
         <thead class="thead-light">
@@ -24,10 +25,21 @@
             <td th:text="${item.name}">分类名称</td>
             <td>
                 <a class="btn btn-success btn-sm" th:href="@{/admin/category/edit/{id}(id=${item.id})}">编辑</a>
-                <a class="btn btn-danger btn-sm" th:href="@{/admin/category/del/{id}(id=${item.id})}">删除</a>
+                <form th:action="@{/admin/category/del/{id}(id=${item.id})}" method="post"
+                      th:id="|del-category-${item.id}|" style="display: none"></form>
+                <a class="btn btn-danger btn-sm" th:href="@{/admin/category/del/{id}(id=${item.id})}"
+                   th:onclick="|del('del-category-${item.id}')|">删除</a>
             </td>
         </tr>
     </table>
 </div>
+<script>
+    function del(id) {
+        event.preventDefault();
+        if (confirm('是否确定删除？')) {
+            document.getElementById(id).submit();
+        }
+    }
+</script>
 </body>
 </html>
