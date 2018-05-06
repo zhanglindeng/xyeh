@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link href="https://cdn.bootcss.com/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+<div class="admin-wrapper">
+    <!-- admin-left-container -->
+    <div class="admin-left-container">
+        <div class="admin-left-wrapper">
+            <div class="admin-left-spacer">
+                <div class="admin-left-scroll">
+                    <div class="admin-left-content">
+                        <ul class="admin-left-menus">
+                            <li class="divider">菜单</li>
+                            <li>
+                                <a th:href="@{/admin}">
+                                    <i class="icon zmdi zmdi-home zmdi-hc-fw"></i>
+                                    <span>首页</span>
+                                </a>
+                            </li>
+                            <li class="parent open">
+                                <a href="#">
+                                    <i class="icon zmdi zmdi-face zmdi-hc-fw"></i>
+                                    <span>UI Elements</span>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="#">Alerts</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Buttons</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Panels</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">General</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /admin-left-container -->
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/admin.js}"></script>
+</body>
+</html>

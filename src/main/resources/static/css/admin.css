@@ -1,0 +1,136 @@
+html, body {
+    font-size: 12px;
+}
+
+.admin-wrapper {
+    background-color: #eee;
+    width: 100%;
+    height: 100%;
+}
+
+/*.admin-left-container*/
+.admin-left-container {
+    width: 220px;
+    background-color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    border-right: 1px solid #e5e5e5;
+}
+
+.admin-left-container .admin-left-wrapper {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.admin-left-container .admin-left-spacer {
+    height: 100%;
+    display: table-row;
+}
+
+.admin-left-container .admin-left-scroll {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.admin-left-container .admin-left-content {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 1rem;
+}
+
+.admin-left-container .admin-left-menus {
+    padding: 0;
+    margin: 0;
+}
+
+.admin-left-container .admin-left-menus .divider {
+    padding: 20px 20px 0;
+    color: #b0b0b0;
+    line-height: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.admin-left-container .admin-left-menus > li {
+    list-style: none;
+}
+
+.admin-left-container .admin-left-menus > li > a {
+    display: block;
+    text-decoration: none;
+    padding: 0 20px;
+    color: #646464;
+    font-size: 1.25rem;
+    line-height: 40px;
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.admin-left-container .admin-left-menus > li > a:hover {
+    background-color: #e0e0e0;
+}
+
+.admin-left-container .admin-left-menus > li > a .icon {
+    line-height: 20px;
+    font-size: 21px;
+    min-width: 21px;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.admin-left-container .admin-left-menus > li ul {
+    display: none;
+    background-color: #eee;
+    padding: 0;
+    list-style: none;
+    line-height: 20px;
+}
+
+.admin-left-container .admin-left-menus > li > ul {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.admin-left-container .admin-left-menus > li ul li > a {
+    text-decoration: none;
+    padding: 8px 15px 8px 49px;
+    color: #646464;
+    font-size: 13px;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.admin-left-container .admin-left-menus > li ul li > a:hover {
+    background-color: #e7e7e7;
+}
+
+.admin-left-container .admin-left-menus > li.open > ul {
+    display: block;
+}
+
+.admin-left-container .admin-left-menus > li.parent > a:before {
+    content: '\f2f2';
+    float: right;
+    font-family: "Material-Design-Iconic-Font";
+    font-size: 1.615rem;
+    color: #c5c5c5;
+}
+
+.admin-left-container .admin-left-menus > li.parent.open > a:before {
+    content: '\f2f8';
+}
+
+/*.admin-left-container end*/

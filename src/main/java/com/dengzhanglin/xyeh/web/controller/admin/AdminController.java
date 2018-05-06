@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/admin")
 public class AdminController extends BaseController {
 
+    @GetMapping(value = "")
+    public String index() {
+        return "admin/index";
+    }
+
     @GetMapping(value = "/success")
     public String success() {
         return "admin/success";
