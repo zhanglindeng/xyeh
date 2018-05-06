@@ -27,4 +27,7 @@ public interface CategoryMapper {
     List<CategoryEntity> subCategories(Integer pid);
 
     CategoryEntity findById(Integer id);
+
+    // update
+    Integer update(CategoryEntity categoryEntity);
 }

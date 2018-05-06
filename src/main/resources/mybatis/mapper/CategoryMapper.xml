@@ -29,4 +29,8 @@
     <select id="findById" parameterType="java.lang.Integer" resultType="Category">
         select <include refid="goodsColumns"/> from category where id = #{id}
     </select>
+
+    <update id="update" parameterType="Category">
+        update category set name = #{name}, pid = #{pid} where id = #{id}
+    </update>
 </mapper>

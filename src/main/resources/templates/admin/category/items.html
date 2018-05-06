@@ -23,8 +23,8 @@
             <td th:text="${stat.index+1}">1</td>
             <td th:text="${item.name}">分类名称</td>
             <td>
-                <a class="btn btn-success btn-sm" th:href="@{/admin/category/{pid}/items(pid=${item.id})}">编辑</a>
-                <a class="btn btn-danger btn-sm" th:href="@{/admin/category/{pid}/items(pid=${item.id})}">删除</a>
+                <a class="btn btn-success btn-sm" th:href="@{/admin/category/edit/{id}(id=${item.id})}">编辑</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/admin/category/del/{id}(id=${item.id})}">删除</a>
             </td>
         </tr>
     </table>

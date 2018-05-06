@@ -16,8 +16,12 @@ public class CategoryRepository {
         this.categoryMapper = categoryMapper;
     }
 
+    public Integer update(CategoryEntity categoryEntity) {
+        return this.categoryMapper.update(categoryEntity);
+    }
+
     public CategoryEntity findById(Integer id) {
-        return  this.categoryMapper.findById(id);
+        return this.categoryMapper.findById(id);
     }
 
     public List<CategoryEntity> subCategories(Integer pid) {

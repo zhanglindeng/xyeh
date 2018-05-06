@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提示信息</title>
 </head>
 <body>
-admin/success
+<!--/*@thymesVar id="url" type="java.lang.String"*/-->
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+<!--/*@thymesVar id="wait" type="java.lang.Integer"*/-->
+<h3 th:text="${message}?:'操作成功'">操作成功</h3>
+<p>
+    页面自动 <a id="href" th:href="${url}?:'javascript:history.back(-1);'">跳转</a> 等待时间： <b id="wait" th:text="${wait}?:3">3</b>
+</p>
+<script>
+    (function () {
+        var wait = document.getElementById('wait'), href = document.getElementById('href').href;
+        var interval = setInterval(function () {
+            var time = --wait.innerHTML;
+            if (time <= 0) {
+                location.href = href;
+                clearInterval(interval);
+            }
+        }, 1000);
+    })();
+</script>
 </body>
 </html>
